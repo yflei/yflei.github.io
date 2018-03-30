@@ -234,9 +234,43 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="什么是Hexo"><a href="#什么是Hexo" class="headerlink" title="什么是Hexo"></a>什么是Hexo</h2><p>​    <a href="https://hexo.io/" target="_blank" rel="noopener">hexo</a> ,A fast, simple &amp; powerful blog framework，这是官方的定义，简介明了，小伙伴们一看就懂了吧？没错，就是一个快速，简单，强大的博客搭建框架。</p>
+        <h2 id="什么是Hexo"><a href="#什么是Hexo" class="headerlink" title="什么是Hexo"></a>什么是Hexo</h2><p>​    <a href="https://hexo.io/" target="_blank" rel="noopener">hexo</a> ,<code>A fast, simple &amp; powerful blog framework</code>，这是官方的定义，简介明了，小伙伴们一看就懂了吧？没错，就是一个快速，简单，强大的博客搭建框架。</p>
 <p><img src="\assets\blogImg\hexo_logo.gif" alt="hexo_logo"></p>
-<h2 id="Hexo怎么用"><a href="#Hexo怎么用" class="headerlink" title="Hexo怎么用"></a>Hexo怎么用</h2><h2 id="Hexo与github搭建一个github主页"><a href="#Hexo与github搭建一个github主页" class="headerlink" title="Hexo与github搭建一个github主页"></a>Hexo与github搭建一个github主页</h2>
+<h2 id="Hexo怎么用"><a href="#Hexo怎么用" class="headerlink" title="Hexo怎么用"></a>Hexo怎么用</h2><p>​    其实Hexo并没有想象中的那么复杂，小伙伴们一起动动手吧？</p>
+<p>1、安装<a href="https://gitforwindows.org/" target="_blank" rel="noopener">git Bash</a>，下载之后就一直next，next就行了，因为我平时部这么喜欢命令行，所以在实际开发中提交效率的话我都是安装个<img src="\assets\blogImg\wugui.png" alt="">git，使用可视化界面操作，比喷我这渣渣吧。安装完毕之后在任意文件夹右键，打开gitBash，验证通过是这样的</p>
+<p><img src="\assets\blogImg\git.png" alt=""></p>
+<p>2、安装<a href="https://nodejs.org/en/" target="_blank" rel="noopener">note.js</a>，Hexo是基于nodeJS环境的静态博客，里面的npm工具很有用，很多搞前段的小哥对此肯定一点都不陌生，同理，下载之后就一直next，next就行了。验证通过是这样的</p>
+<p><img src="\assets\blogImg\noteJs.png" alt=""></p>
+<p>3、安装完相关的运行环境之后中午到我们的Hexo啦，有木有好激动呀。不复杂，只要运用note.js 里面的npm工具就行啦。</p>
+<p>a、先创建一个文件夹用于存放博客的所有东西，我的路径是这样的：<code>E:\blog</code>，然后cd到该目录下</p>
+<p><img src="\assets\blogImg\eblog.png" alt=""></p>
+<p>b、安装hexo命令：<code>npm i -g hexo</code></p>
+<p>c、安装完成后，查看版本</p>
+<p><img src="\assets\blogImg\hexoversion.png" alt=""></p>
+<p>d、初始化命令：<code>hexo init</code> ，注意，这里一定要在根目录初始化，这样的话，文件才会当前目录，初始化完成之后打开所在的文件夹可以看到以下文件，大致是一样的，因为我是已经部署好我的博客了，所以会有一下deploy文件，大家跳过</p>
+<p><img src="\assets\blogImg\hexoroot.png" alt=""></p>
+<p>解释一下：</p>
+<ul>
+<li><p>node_modules：是依赖包</p>
+</li>
+<li><p>public：存放的是生成的页面，页面在里面定义了之后，会发布到上图中的.deploy_git文件夹下面</p>
+</li>
+<li><p>scaffolds：命令生成文章等的模板</p>
+</li>
+<li><p>source：用命令创建的各种文章，文章会在这里面的source\_posts 路径下</p>
+</li>
+<li><p>themes：主题，这里的主题可以任意替换，这就是为什么网友的主题都是不一样的</p>
+</li>
+<li><p>_config.yml：整个博客的配置，全局配置，配置主题之类的</p>
+</li>
+<li><p>db.json：source解析所得到的</p>
+</li>
+<li><p>package.json：项目所需模块项目的配置信息</p>
+<p>​</p>
+</li>
+</ul>
+<p>e、到这里，恭喜你了，其实你的博客环境就已经搭建完毕了，只是是你的博客只在你的本地上，你只能自己访问而已，接着看下面可以把你的主页托管到github.io  上面，是不是很强大。</p>
+<h2 id="Hexo与github搭建一个github主页"><a href="#Hexo与github搭建一个github主页" class="headerlink" title="Hexo与github搭建一个github主页"></a>Hexo与github搭建一个github主页</h2>
       
 
       

@@ -8,13 +8,13 @@
   <link rel="dns-prefetch" href="https://yflei.github.io">
   <title>Android基于AOP的非侵入式编程—AspectJ的坑 | 欢迎来到迎风泪的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="背景：​    最近因自身原因，换了一份工作，接触的一份产品代码里面到处都是这种基于AOP的切点替换方法，导致一个原来不怎么接触过spring的渣渣来说要去熟悉一下什么是AOP和Aspect，相信很多做过Web的同学对AspectJ都不陌生，Spring的AOP就是基于它而来的。具体的概念这里不多说了，网上一大堆，这里就说在切点的过程中发现了一个绝大的坑，记录一下，转给有遇到坑的小伙伴。 坑：​">
-<meta name="keywords" content="Android">
+  <meta name="description" content="背景：​    最近因自身原因，换了一份工作，接触的一份产品代码里面到处都是这种基于AOP的切点替换方法，导致一个原来不怎么接触过spring的渣渣来说要去熟悉一下什么是AOP和AspectJ，相信很多做过Web的同学对AspectJ都不陌生，Spring的AOP就是基于它而来的。具体的概念这里不多说了，网上一大堆，这里就说在切点的过程中发现了一个绝大的坑，记录一下，转给有遇到坑的小伙伴。 坑：​">
+<meta name="keywords" content="Android AspectJ">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android基于AOP的非侵入式编程—AspectJ的坑">
 <meta property="og:url" content="https://yflei.github.io/2018/04/04/Android基于AOP的非侵入式编程—AspectJ的坑/index.html">
 <meta property="og:site_name" content="欢迎来到迎风泪的博客">
-<meta property="og:description" content="背景：​    最近因自身原因，换了一份工作，接触的一份产品代码里面到处都是这种基于AOP的切点替换方法，导致一个原来不怎么接触过spring的渣渣来说要去熟悉一下什么是AOP和Aspect，相信很多做过Web的同学对AspectJ都不陌生，Spring的AOP就是基于它而来的。具体的概念这里不多说了，网上一大堆，这里就说在切点的过程中发现了一个绝大的坑，记录一下，转给有遇到坑的小伙伴。 坑：​">
+<meta property="og:description" content="背景：​    最近因自身原因，换了一份工作，接触的一份产品代码里面到处都是这种基于AOP的切点替换方法，导致一个原来不怎么接触过spring的渣渣来说要去熟悉一下什么是AOP和AspectJ，相信很多做过Web的同学对AspectJ都不陌生，Spring的AOP就是基于它而来的。具体的概念这里不多说了，网上一大堆，这里就说在切点的过程中发现了一个绝大的坑，记录一下，转给有遇到坑的小伙伴。 坑：​">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://yflei.github.io/assets/blogImg/true.png">
 <meta property="og:image" content="https://yflei.github.io/assets/blogImg/false.png">
@@ -25,7 +25,7 @@
 <meta property="og:updated_time" content="2018-04-04T06:50:13.470Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android基于AOP的非侵入式编程—AspectJ的坑">
-<meta name="twitter:description" content="背景：​    最近因自身原因，换了一份工作，接触的一份产品代码里面到处都是这种基于AOP的切点替换方法，导致一个原来不怎么接触过spring的渣渣来说要去熟悉一下什么是AOP和Aspect，相信很多做过Web的同学对AspectJ都不陌生，Spring的AOP就是基于它而来的。具体的概念这里不多说了，网上一大堆，这里就说在切点的过程中发现了一个绝大的坑，记录一下，转给有遇到坑的小伙伴。 坑：​">
+<meta name="twitter:description" content="背景：​    最近因自身原因，换了一份工作，接触的一份产品代码里面到处都是这种基于AOP的切点替换方法，导致一个原来不怎么接触过spring的渣渣来说要去熟悉一下什么是AOP和AspectJ，相信很多做过Web的同学对AspectJ都不陌生，Spring的AOP就是基于它而来的。具体的概念这里不多说了，网上一大堆，这里就说在切点的过程中发现了一个绝大的坑，记录一下，转给有遇到坑的小伙伴。 坑：​">
 <meta name="twitter:image" content="https://yflei.github.io/assets/blogImg/true.png">
   
     <link rel="alternative" href="/atom.xml" title="欢迎来到迎风泪的博客" type="application/atom+xml">
@@ -178,7 +178,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="背景："><a href="#背景：" class="headerlink" title="背景："></a><strong>背景：</strong></h1><p>​    最近因自身原因，换了一份工作，接触的一份产品代码里面到处都是这种基于AOP的切点替换方法，导致一个原来不怎么接触过spring的渣渣来说要去熟悉一下什么是AOP和Aspect，相信很多做过Web的同学对<a href="https://eclipse.org/aspectj/doc/next/progguide/starting.html" target="_blank" rel="noopener">AspectJ</a>都不陌生，Spring的AOP就是基于它而来的。具体的概念这里不多说了，网上一大堆，这里就说在切点的过程中发现了一个绝大的坑，记录一下，转给有遇到坑的小伙伴。</p>
+        <h1 id="背景："><a href="#背景：" class="headerlink" title="背景："></a><strong>背景：</strong></h1><p>​    最近因自身原因，换了一份工作，接触的一份产品代码里面到处都是这种基于AOP的切点替换方法，导致一个原来不怎么接触过spring的渣渣来说要去熟悉一下什么是AOP和AspectJ，相信很多做过Web的同学对<a href="https://eclipse.org/aspectj/doc/next/progguide/starting.html" target="_blank" rel="noopener">AspectJ</a>都不陌生，Spring的AOP就是基于它而来的。具体的概念这里不多说了，网上一大堆，这里就说在切点的过程中发现了一个绝大的坑，记录一下，转给有遇到坑的小伙伴。</p>
 <h1 id="坑："><a href="#坑：" class="headerlink" title="坑："></a><strong>坑：</strong></h1><p>​    <strong>表达式2有时候切点切入无效，至于为什么，目前找不到原因。</strong></p>
 <p>​    首先贴出简单的两种切点表达式</p>
 <p>表达式1：</p>
@@ -242,7 +242,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Android AspectJ</a>
         		</li>
       		
 		</ul>
@@ -449,6 +449,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Android AspectJ</a>
               </li>
             
             <div class="clearfix"></div>

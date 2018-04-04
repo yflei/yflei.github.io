@@ -148,6 +148,99 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Android基于AOP的非侵入式编程—AspectJ的坑" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/04/Android基于AOP的非侵入式编程—AspectJ的坑/">Android基于AOP的非侵入式编程—AspectJ的坑</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/04/Android基于AOP的非侵入式编程—AspectJ的坑/" class="archive-article-date">
+  	<time datetime="2018-04-04T06:22:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="背景："><a href="#背景：" class="headerlink" title="背景："></a><strong>背景：</strong></h1><p>​    最近因自身原因，换了一份工作，接触的一份产品代码里面到处都是这种基于AOP的切点替换方法，导致一个原来不怎么接触过spring的渣渣来说要去熟悉一下什么是AOP和Aspect，相信很多做过Web的同学对<a href="https://eclipse.org/aspectj/doc/next/progguide/starting.html" target="_blank" rel="noopener">AspectJ</a>都不陌生，Spring的AOP就是基于它而来的。具体的概念这里不多说了，网上一大堆，这里就说在切点的过程中发现了一个绝大的坑，记录一下，转给有遇到坑的小伙伴。</p>
+<h1 id="坑："><a href="#坑：" class="headerlink" title="坑："></a><strong>坑：</strong></h1><p>​    <strong>表达式2有时候切点切入无效，至于为什么，目前找不到原因。</strong></p>
+<p>​    首先贴出简单的两种切点表达式</p>
+<p>表达式1：</p>
+<p><img src="\assets\blogImg\true.png" alt="true"></p>
+<p>表达式2：</p>
+<p><img src="\assets\blogImg\false.png" alt="false"></p>
+<h1 id="分析看这里："><a href="#分析看这里：" class="headerlink" title="分析看这里："></a><strong>分析看这里：</strong></h1><p>​    需求是这样的：我需要替换掉某个类里面的gotoLogin方法，如图所示：</p>
+<p><img src="\assets\blogImg\aspect_before.png" alt="aspect_before"></p>
+<p>当使用上述表达式2的方式切入的时候，编译后的class文件长这样的：</p>
+<p><em>怎么看编译后的class？？看文章结尾</em></p>
+<p><img src="\assets\blogImg\aspect_before.png" alt="aspect_before"></p>
+<p>这说明，压根就没切入到，断点还是走原来的方法。</p>
+<hr>
+<p>当使用上述表达式1的方式切入的时候，编译后的class文件长这样的：</p>
+<p><img src="\assets\blogImg\asptect_after.png" alt="asptect_after"></p>
+<p>这说明，已经切入了，而且完美替换掉了旧方法。</p>
+<hr>
+<p>看编译后的class文件，可以编译后按照下图路径找到对应的类</p>
+<p><img src="\assets\blogImg\path.png" alt="path"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/04/Android基于AOP的非侵入式编程—AspectJ的坑/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-菜菜小虹科离职" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -438,6 +531,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">生活</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
             
             <div class="clearfix"></div>

@@ -16,16 +16,16 @@
 <meta property="og:site_name" content="欢迎来到迎风泪的博客">
 <meta property="og:description" content="[TOC] 背景最近接触一个新项目，涉及到电商平台的，因此，在综合考虑了性能，门槛成本的众多可行性之后，最后在ReactNative和weex之间徘徊不定，最后领导们拍板，就weex吧。之后就开始了两个星期的weex躺坑生涯，记忆尤新。通过这两个星期间断式的预言，终于有了一点点收获，趁此机会，手撸一篇推文，致敬小伙伴们。 什么是weex？套一下官网的阐述：     1Weex 是一个使用 Web">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="e:/blog/public/assets/blogImg/lianxi.png">
-<meta property="og:image" content="e:/blog/public/assets/blogImg/android.png">
-<meta property="og:image" content="e:/blog/public/assets/blogImg/hellow.png">
-<meta property="og:image" content="e:/blog/public/assets/blogImg/aa.png">
-<meta property="og:image" content="e:/blog/public/assets/blogImg/发8.png">
-<meta property="og:updated_time" content="2018-05-04T10:16:09.575Z">
+<meta property="og:image" content="https://yflei.github.io/assets/blogImg/lianxi.png">
+<meta property="og:image" content="https://yflei.github.io/assets/blogImg/android.png">
+<meta property="og:image" content="https://yflei.github.io/assets/blogImg/hellow.png">
+<meta property="og:image" content="https://yflei.github.io/assets/blogImg/aa.png">
+<meta property="og:image" content="https://yflei.github.io/assets/blogImg/发8.png">
+<meta property="og:updated_time" content="2018-05-04T10:21:07.144Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="weex快速上手">
 <meta name="twitter:description" content="[TOC] 背景最近接触一个新项目，涉及到电商平台的，因此，在综合考虑了性能，门槛成本的众多可行性之后，最后在ReactNative和weex之间徘徊不定，最后领导们拍板，就weex吧。之后就开始了两个星期的weex躺坑生涯，记忆尤新。通过这两个星期间断式的预言，终于有了一点点收获，趁此机会，手撸一篇推文，致敬小伙伴们。 什么是weex？套一下官网的阐述：     1Weex 是一个使用 Web">
-<meta name="twitter:image" content="e:/blog/public/assets/blogImg/lianxi.png">
+<meta name="twitter:image" content="https://yflei.github.io/assets/blogImg/lianxi.png">
   
     <link rel="alternative" href="/atom.xml" title="欢迎来到迎风泪的博客" type="application/atom+xml">
   
@@ -189,18 +189,18 @@
 <p>估计不止是我懵逼，神马？web开发原生应用框架？这还有我们原生兄弟的什么事吗？别急，在往下看：</p>
 <p>Weex 致力于使开发者能基于当代先进的 Web 开发技术，使用同一套代码来构建 Android、iOS 和 Web 应用。具体来讲，在集成了 WeexSDK 之后，你可以使用 JavaScript 和现代流行的前端框架来开发移动应用。Weex 的结构是解耦的，渲染引擎与语法层是分开的，也不依赖任何特定的前端框架，目前主要支持 Vue.js 和 Rax 这两个前端框架。Weex 的另一个主要目标是跟进当代先进的 Web 开发和原生开发的技术，使生产力和性能共存。在开发 Weex 页面就像开发普通网页一样；在渲染 Weex 页面时和渲染原生页面一样。</p>
 <p>其实通俗地说，就是weex是把一套前端框架通过某种特定的协议翻译成原生代码的一种开发模式，这样以来，协议是固定的，你的前端框架只要支持固定的协议，就能被原生所识别。原生只认识协议。</p>
-<p><img src="E:\blog\public\assets\blogImg\lianxi.png" alt="lianxi"></p>
-<h4 id="android与weex"><a href="#android与weex" class="headerlink" title="android与weex"></a>android与weex</h4><p><img src="E:\blog\public\assets\blogImg\android.png" alt="android"></p>
+<p><img src="\assets\blogImg\lianxi.png" alt="lianxi"></p>
+<h4 id="android与weex"><a href="#android与weex" class="headerlink" title="android与weex"></a>android与weex</h4><p><img src="\assets\blogImg\android.png" alt="android"></p>
 <p>阿里提供sdk的接入方式包括 <a href="https://github.com/apache/incubator-weex" target="_blank" rel="noopener">源码导入</a> 和gradle引入两种方式，sdk包里面已经实现了一批通用组件，包括图片，列表和一批css样式，已经一些通用模块，例如，Toast，Event。同时提供了拓展模式，开发者们可以通过组件拓展和模块拓展支持业务场景的需要。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div style=<span class="string">"justify-content:center"</span>&gt;</span><br><span class="line">    &lt;text <span class="class"><span class="keyword">class</span></span>=<span class="string">"freestyle"</span>&gt;Yo&lt;<span class="regexp">/text&gt;</span></span><br><span class="line"><span class="regexp">  &lt;/</span>div&gt;</span><br><span class="line">&lt;<span class="regexp">/template&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;style scoped&gt;</span></span><br><span class="line"><span class="regexp">  .freestyle &#123;</span></span><br><span class="line"><span class="regexp">    color: #41B883;</span></span><br><span class="line"><span class="regexp">    font-size: 233px;</span></span><br><span class="line"><span class="regexp">    text-align: center;</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&lt;/</span>style&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="E:\blog\public\assets\blogImg\hellow.png" alt="hellow"></p>
+<p><img src="\assets\blogImg\hellow.png" alt="hellow"></p>
 <h4 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h4><p>Weex 官方提供了 weex-toolkit 的脚手架工具来辅助开发和调试。首先，你需要 Node.js 和 Weex CLi。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm 是一个 JavaScript 包管理工具，它可以让开发者轻松共享和重用代码。Weex 很多依赖来自社区，同样，Weex 也将很多工具发布到社区方便开发者使用。</span><br></pre></td></tr></table></figure>
 <p>步骤：</p>
 <h5 id="1、安装node-js"><a href="#1、安装node-js" class="headerlink" title="1、安装node.js"></a>1、安装node.js</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">安装了 Node.js 环境，npm 包管理工具也随之安装了，因此，直接使用 npm 来安装 weex-toolkit。</span><br></pre></td></tr></table></figure>
 <h5 id="2、安装weex-toolkit"><a href="#2、安装weex-toolkit" class="headerlink" title="2、安装weex-toolkit"></a>2、安装weex-toolkit</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g weex-toolkit</span><br><span class="line">$ weex -v <span class="comment">//查看当前weex版本</span></span><br><span class="line"><span class="comment">//这里有个技巧，国内开发者可以考虑使用淘宝的 npm 镜像 —— cnpm 安装 weex-toolkit</span></span><br><span class="line"></span><br><span class="line">$ npm install -g cnpm --registry=https:<span class="comment">//registry.npm.taobao.org</span></span><br><span class="line">$ cnpm install -g weex-toolkit</span><br></pre></td></tr></table></figure>
 <p>当执行上述命令的同时，你的控制台都是红红绿绿的，是不是有点大神的赶脚，心里默默地得意一番？成功之后长这样子</p>
-<p><img src="E:\blog\public\assets\blogImg\aa.png" alt="aa"></p>
+<p><img src="\assets\blogImg\aa.png" alt="aa"></p>
 <p>之后你就可以运行一下指令初始化一个project，编写vue文件，然后运行指令编译成前端识别的js文件，把js文件通过网络或者打入原生apk里面，就可以运行啦。下面列举一下常用指令</p>
 <p>1、初始化一个project</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">weex create XXX  <span class="comment">//XXX是工程名称</span></span><br></pre></td></tr></table></figure>
@@ -208,7 +208,7 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">weex compile index.vue index.js <span class="comment">//可以相对路径，或者绝对路径</span></span><br><span class="line">或者</span><br><span class="line">weex compile . target <span class="comment">//表示编译整个文件夹</span></span><br></pre></td></tr></table></figure>
 <p>原生的兄弟们一般认识这三个命令就够了。</p>
 <h4 id="weex工作原理"><a href="#weex工作原理" class="headerlink" title="weex工作原理"></a>weex工作原理</h4><p>Weex 表面上是一个客户端技术，但实际上它串联起了从本地开发、云端部署到分发的整个链路。开发者首先可在本地像编写 web 页面一样编写一个 app 的界面，然后通过命令行工具将之编译成一段 JavaScript 代码，生成一个 Weex 的 JS bundle；同时，开发者可以将生成的 JS bundle 部署至云端，然后通过网络请求或预下发的方式加载至用户的移动应用客户端；在移动应用客户端里，Weex SDK 会准备好一个 JavaScript 执行环境，并且在用户打开一个 Weex 页面时在这个执行环境中执行相应的 JS bundle，并将执行过程中产生的各种命令发送到 native 端进行界面渲染、数据存储、网络通信、调用设备功能及用户交互响应等功能；同时，如果用户希望使用浏览器访问这个界面，那么他可以在浏览器里打开一个相同的 web 页面，这个页面和移动应用使用相同的页面源代码，但被编译成适合Web展示的JS Bundle，通过浏览器里的 JavaScript 引擎及 Weex SDK 运行起来的。</p>
-<p><img src="E:\blog\public\assets\blogImg\发8.png" alt="发8"></p>
+<p><img src="\assets\blogImg\发8.png" alt="发8"></p>
 <p>通俗地讲：Android，IOS，Web，其实就是一个浏览器，weex致力于一份js文件在三端运行，这和浏览器渲染html本质上是一样的。</p>
 <h4 id="weex源码简单认识"><a href="#weex源码简单认识" class="headerlink" title="weex源码简单认识"></a>weex源码简单认识</h4><p>鉴于篇幅有限，这里只贴出一些重要的类供参考，weex的实现细节很多，很多逻辑是通过js引擎实现的，我们只需要通过研究源码认识几个重要的类，便于我们理解整个原理就已经足够了。</p>
 <p>1、打开一个页面</p>

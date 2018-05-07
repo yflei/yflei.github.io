@@ -24,7 +24,7 @@
 <meta property="og:image" content="https://yflei.github.io/assets/blogImg/8f0f.png">
 <meta property="og:image" content="https://yflei.github.io/assets/blogImg/0.png">
 <meta property="og:image" content="https://yflei.github.io/assets/blogImg/Screenshot_2018-05-07-11-17-44.png">
-<meta property="og:updated_time" content="2018-05-07T03:19:26.457Z">
+<meta property="og:updated_time" content="2018-05-07T06:36:03.243Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="weex快速上手">
 <meta name="twitter:description" content="[TOC] 背景最近接触一个新项目，涉及到电商平台的，因此，在综合考虑了性能，门槛成本的众多可行性之后，最后在ReactNative和weex之间徘徊不定，最后领导们拍板，就weex吧。之后就开始了两个星期的weex躺坑生涯，记忆尤新。通过这两个星期间断式的预言，终于有了一点点收获，趁此机会，手撸一篇推文，致敬小伙伴们。 什么是weex？套一下官网的阐述：     1Weex 是一个使用 Web">
@@ -244,7 +244,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Uri uri = Uri.parse(url);</span><br><span class="line">Intent intent = <span class="keyword">new</span> Intent(mWXSDKInstance.getContext(),WXPageActivity.class);</span><br><span class="line">intent.setAction(WEEX_ACTION);</span><br><span class="line">intent.setData(uri);</span><br><span class="line">intent.addCategory(WEEX_CATEGORY);</span><br><span class="line">mWXSDKInstance.getContext().startActivity(intent);</span><br></pre></td></tr></table></figure>
 <p>2、<strong>WXBridge</strong></p>
 <p>负责java和js沟通的桥梁，需要传递几个参数</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">invokeCreateInstanceContext(instance.getInstanceId(), <span class="keyword">null</span>, METHOD_CREATE_INSTANCE_CONTEXT, args, <span class="keyword">false</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这里是交给js渲染的最终接口 ，args里面包含了template的jscode</span></span><br><span class="line">invokeCreateInstanceContext(instance.getInstanceId(), <span class="keyword">null</span>, METHOD_CREATE_INSTANCE_CONTEXT, args, <span class="keyword">false</span>);</span><br></pre></td></tr></table></figure>
 <p>js调用java层面的方法都是通过WXBridge 找到WXModuleManager ，然后找到对应的module</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">WXBridge.callNativeModule</span><br><span class="line">WXBridge.callNativeComponent</span><br></pre></td></tr></table></figure>
 <p>3、<strong>WXSDKInstance</strong></p>

@@ -8,13 +8,13 @@
   <link rel="dns-prefetch" href="https://yflei.github.io">
   <title>weex快速上手 | 欢迎来到迎风泪的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="[TOC] 背景最近接触一个新项目，涉及到电商平台的，因此，在综合考虑了性能，门槛成本的众多可行性之后，最后在ReactNative和weex之间徘徊不定，最后领导们拍板，就weex吧。之后就开始了两个星期的weex躺坑生涯，记忆尤新。通过这两个星期间断式的预言，终于有了一点点收获，趁此机会，手撸一篇推文，致敬小伙伴们。 什么是weex？套一下官网的阐述：     1Weex 是一个使用 Web">
+  <meta name="description" content="背景最近接触一个新项目，涉及到电商平台的，因此，在综合考虑了性能，门槛成本的众多可行性之后，最后在ReactNative和weex之间徘徊不定，最后领导们拍板，就weex吧。之后就开始了两个星期的weex躺坑生涯，记忆尤新。通过这两个星期间断式的预言，终于有了一点点收获，趁此机会，手撸一篇推文，致敬小伙伴们。 什么是weex？套一下官网的阐述：     1Weex 是一个使用 Web 开发体验来开">
 <meta name="keywords" content="Android,Weex">
 <meta property="og:type" content="article">
 <meta property="og:title" content="weex快速上手">
 <meta property="og:url" content="https://yflei.github.io/2018/05/04/weex快速上手/index.html">
 <meta property="og:site_name" content="欢迎来到迎风泪的博客">
-<meta property="og:description" content="[TOC] 背景最近接触一个新项目，涉及到电商平台的，因此，在综合考虑了性能，门槛成本的众多可行性之后，最后在ReactNative和weex之间徘徊不定，最后领导们拍板，就weex吧。之后就开始了两个星期的weex躺坑生涯，记忆尤新。通过这两个星期间断式的预言，终于有了一点点收获，趁此机会，手撸一篇推文，致敬小伙伴们。 什么是weex？套一下官网的阐述：     1Weex 是一个使用 Web">
+<meta property="og:description" content="背景最近接触一个新项目，涉及到电商平台的，因此，在综合考虑了性能，门槛成本的众多可行性之后，最后在ReactNative和weex之间徘徊不定，最后领导们拍板，就weex吧。之后就开始了两个星期的weex躺坑生涯，记忆尤新。通过这两个星期间断式的预言，终于有了一点点收获，趁此机会，手撸一篇推文，致敬小伙伴们。 什么是weex？套一下官网的阐述：     1Weex 是一个使用 Web 开发体验来开">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://yflei.github.io/assets/blogImg/lianxi.png">
 <meta property="og:image" content="https://yflei.github.io/assets/blogImg/android.png">
@@ -24,10 +24,10 @@
 <meta property="og:image" content="https://yflei.github.io/assets/blogImg/8f0f.png">
 <meta property="og:image" content="https://yflei.github.io/assets/blogImg/0.png">
 <meta property="og:image" content="https://yflei.github.io/assets/blogImg/Screenshot_2018-05-07-11-17-44.png">
-<meta property="og:updated_time" content="2018-05-07T08:03:25.429Z">
+<meta property="og:updated_time" content="2018-05-07T08:05:08.528Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="weex快速上手">
-<meta name="twitter:description" content="[TOC] 背景最近接触一个新项目，涉及到电商平台的，因此，在综合考虑了性能，门槛成本的众多可行性之后，最后在ReactNative和weex之间徘徊不定，最后领导们拍板，就weex吧。之后就开始了两个星期的weex躺坑生涯，记忆尤新。通过这两个星期间断式的预言，终于有了一点点收获，趁此机会，手撸一篇推文，致敬小伙伴们。 什么是weex？套一下官网的阐述：     1Weex 是一个使用 Web">
+<meta name="twitter:description" content="背景最近接触一个新项目，涉及到电商平台的，因此，在综合考虑了性能，门槛成本的众多可行性之后，最后在ReactNative和weex之间徘徊不定，最后领导们拍板，就weex吧。之后就开始了两个星期的weex躺坑生涯，记忆尤新。通过这两个星期间断式的预言，终于有了一点点收获，趁此机会，手撸一篇推文，致敬小伙伴们。 什么是weex？套一下官网的阐述：     1Weex 是一个使用 Web 开发体验来开">
 <meta name="twitter:image" content="https://yflei.github.io/assets/blogImg/lianxi.png">
   
     <link rel="alternative" href="/atom.xml" title="欢迎来到迎风泪的博客" type="application/atom+xml">
@@ -185,8 +185,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>[TOC]</p>
-<h4 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h4><p>最近接触一个新项目，涉及到电商平台的，因此，在综合考虑了性能，门槛成本的众多可行性之后，最后在ReactNative和weex之间徘徊不定，最后领导们拍板，就weex吧。之后就开始了两个星期的weex躺坑生涯，记忆尤新。通过这两个星期间断式的预言，终于有了一点点收获，趁此机会，手撸一篇推文，致敬小伙伴们。</p>
+        <h4 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h4><p>最近接触一个新项目，涉及到电商平台的，因此，在综合考虑了性能，门槛成本的众多可行性之后，最后在ReactNative和weex之间徘徊不定，最后领导们拍板，就weex吧。之后就开始了两个星期的weex躺坑生涯，记忆尤新。通过这两个星期间断式的预言，终于有了一点点收获，趁此机会，手撸一篇推文，致敬小伙伴们。</p>
 <h4 id="什么是weex？"><a href="#什么是weex？" class="headerlink" title="什么是weex？"></a>什么是weex？</h4><p>套一下官网的阐述：    </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Weex 是一个使用 Web 开发体验来开发高性能原生应用的框架。</span><br></pre></td></tr></table></figure>
 <p>估计不止是我懵逼，神马？web开发原生应用框架？这还有我们原生兄弟的什么事吗？别急，在往下看：</p>

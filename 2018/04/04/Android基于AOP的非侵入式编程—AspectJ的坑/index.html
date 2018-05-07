@@ -22,7 +22,7 @@
 <meta property="og:image" content="https://yflei.github.io/assets/blogImg/aspect_before.png">
 <meta property="og:image" content="https://yflei.github.io/assets/blogImg/asptect_after.png">
 <meta property="og:image" content="https://yflei.github.io/assets/blogImg/path.png">
-<meta property="og:updated_time" content="2018-04-04T07:12:06.689Z">
+<meta property="og:updated_time" content="2018-05-07T08:05:46.599Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android基于AOP的非侵入式编程—AspectJ的坑">
 <meta name="twitter:description" content="背景：​    最近因自身原因，换了一份工作，接触的一份产品代码里面到处都是这种基于AOP的切点替换方法，导致一个原来不怎么接触过spring的渣渣来说要去熟悉一下什么是AOP和AspectJ，相信很多做过Web的同学对AspectJ都不陌生，Spring的AOP就是基于它而来的。具体的概念这里不多说了，网上一大堆，这里就说在切点的过程中发现了一个绝大的坑，记录一下，转给有遇到坑的小伙伴。 坑：​">
@@ -356,6 +356,19 @@
         </div>
         
         
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#背景："><span class="toc-number">1.</span> <span class="toc-text">背景：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#坑："><span class="toc-number">2.</span> <span class="toc-text">坑：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#分析看这里："><span class="toc-number">3.</span> <span class="toc-text">分析看这里：</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
     </div>
 </aside>
 
@@ -374,6 +387,30 @@
 
 
    <!-- 目录内容 -->
+        
+            <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+            <span class="btn-bg"></span>
+            <span class="btn-text">文章导航</span>
+            </p>
+            <div id="toc-article" class="toc-article">
+                <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+                <strong class="toc-title">文章目录</strong>
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#背景："><span class="toc-number">1.</span> <span class="toc-text">背景：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#坑："><span class="toc-number">2.</span> <span class="toc-text">坑：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#分析看这里："><span class="toc-number">3.</span> <span class="toc-text">分析看这里：</span></a></li></ol>
+           </div>
+           <script type="text/javascript">
+            function showToc(){
+                var toc_article = document.getElementById("toc-article");
+                var show_toc_btn = document.getElementById("show-toc-btn");
+                toc_article.setAttribute("style","display:block");
+                show_toc_btn.setAttribute("style","display:none");
+                };
+            function showBtn(){
+                var toc_article = document.getElementById("toc-article");
+                var show_toc_btn = document.getElementById("show-toc-btn");
+                toc_article.setAttribute("style","display:none");
+                show_toc_btn.setAttribute("style","display:block");
+                };
+           </script>
              
         <!-- 目录内容结束 -->
           </div>

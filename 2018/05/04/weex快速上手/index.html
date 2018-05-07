@@ -24,7 +24,7 @@
 <meta property="og:image" content="https://yflei.github.io/assets/blogImg/8f0f.png">
 <meta property="og:image" content="https://yflei.github.io/assets/blogImg/0.png">
 <meta property="og:image" content="https://yflei.github.io/assets/blogImg/Screenshot_2018-05-07-11-17-44.png">
-<meta property="og:updated_time" content="2018-05-07T06:36:03.243Z">
+<meta property="og:updated_time" content="2018-05-07T08:03:25.429Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="weex快速上手">
 <meta name="twitter:description" content="[TOC] 背景最近接触一个新项目，涉及到电商平台的，因此，在综合考虑了性能，门槛成本的众多可行性之后，最后在ReactNative和weex之间徘徊不定，最后领导们拍板，就weex吧。之后就开始了两个星期的weex躺坑生涯，记忆尤新。通过这两个星期间断式的预言，终于有了一点点收获，趁此机会，手撸一篇推文，致敬小伙伴们。 什么是weex？套一下官网的阐述：     1Weex 是一个使用 Web">
@@ -276,7 +276,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JSExceptionAdapter</span> <span class="keyword">implements</span> <span class="title">IWXJSExceptionAdapter</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onJSException</span><span class="params">(WXJSExceptionInfo exception)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (exception != <span class="keyword">null</span>) &#123;</span><br><span class="line">      WXLogUtils.d(exception.toString());</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>…</p>
 <p>3、编程风格</p>
-<p>接口编程，模块分层，可插拔式。</p>
+<p>接口编程，模块分层，可插拔式，注册型，反射</p>
 
       
 
@@ -417,6 +417,19 @@
         </div>
         
         
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#背景"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#什么是weex？"><span class="toc-number">2.</span> <span class="toc-text">什么是weex？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#android与weex"><span class="toc-number">3.</span> <span class="toc-text">android与weex</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#环境搭建"><span class="toc-number">4.</span> <span class="toc-text">环境搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1、安装node-js"><span class="toc-number">4.1.</span> <span class="toc-text">1、安装node.js</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2、安装weex-toolkit"><span class="toc-number">4.2.</span> <span class="toc-text">2、安装weex-toolkit</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#weex工作原理"><span class="toc-number">5.</span> <span class="toc-text">weex工作原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#怎么用？"><span class="toc-number">6.</span> <span class="toc-text">怎么用？</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#事件"><span class="toc-number">6.1.</span> <span class="toc-text">事件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Module模块"><span class="toc-number">6.2.</span> <span class="toc-text">Module模块</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Adapter适配器"><span class="toc-number">6.3.</span> <span class="toc-text">Adapter适配器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Component组件"><span class="toc-number">6.4.</span> <span class="toc-text">Component组件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#原生兄弟"><span class="toc-number">6.5.</span> <span class="toc-text">原生兄弟</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#web兄弟"><span class="toc-number">6.6.</span> <span class="toc-text">web兄弟</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#weex源码简单认识"><span class="toc-number">7.</span> <span class="toc-text">weex源码简单认识</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#遇到的坑"><span class="toc-number">8.</span> <span class="toc-text">遇到的坑</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#收获"><span class="toc-number">9.</span> <span class="toc-text">收获</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
     </div>
 </aside>
 
@@ -433,6 +446,34 @@
   
 
 
+
+   <!-- 目录内容 -->
+        
+            <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+            <span class="btn-bg"></span>
+            <span class="btn-text">文章导航</span>
+            </p>
+            <div id="toc-article" class="toc-article">
+                <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+                <strong class="toc-title">文章目录</strong>
+                <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#背景"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#什么是weex？"><span class="toc-number">2.</span> <span class="toc-text">什么是weex？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#android与weex"><span class="toc-number">3.</span> <span class="toc-text">android与weex</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#环境搭建"><span class="toc-number">4.</span> <span class="toc-text">环境搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1、安装node-js"><span class="toc-number">4.1.</span> <span class="toc-text">1、安装node.js</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2、安装weex-toolkit"><span class="toc-number">4.2.</span> <span class="toc-text">2、安装weex-toolkit</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#weex工作原理"><span class="toc-number">5.</span> <span class="toc-text">weex工作原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#怎么用？"><span class="toc-number">6.</span> <span class="toc-text">怎么用？</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#事件"><span class="toc-number">6.1.</span> <span class="toc-text">事件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Module模块"><span class="toc-number">6.2.</span> <span class="toc-text">Module模块</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Adapter适配器"><span class="toc-number">6.3.</span> <span class="toc-text">Adapter适配器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Component组件"><span class="toc-number">6.4.</span> <span class="toc-text">Component组件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#原生兄弟"><span class="toc-number">6.5.</span> <span class="toc-text">原生兄弟</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#web兄弟"><span class="toc-number">6.6.</span> <span class="toc-text">web兄弟</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#weex源码简单认识"><span class="toc-number">7.</span> <span class="toc-text">weex源码简单认识</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#遇到的坑"><span class="toc-number">8.</span> <span class="toc-text">遇到的坑</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#收获"><span class="toc-number">9.</span> <span class="toc-text">收获</span></a></li></ol>
+           </div>
+           <script type="text/javascript">
+            function showToc(){
+                var toc_article = document.getElementById("toc-article");
+                var show_toc_btn = document.getElementById("show-toc-btn");
+                toc_article.setAttribute("style","display:block");
+                show_toc_btn.setAttribute("style","display:none");
+                };
+            function showBtn(){
+                var toc_article = document.getElementById("toc-article");
+                var show_toc_btn = document.getElementById("show-toc-btn");
+                toc_article.setAttribute("style","display:none");
+                show_toc_btn.setAttribute("style","display:block");
+                };
+           </script>
+             
+        <!-- 目录内容结束 -->
           </div>
         </div>
       </div>

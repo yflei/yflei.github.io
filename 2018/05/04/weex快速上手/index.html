@@ -25,7 +25,7 @@
 <meta property="og:image" content="https://yflei.github.io/assets/blogImg/0.png">
 <meta property="og:image" content="https://yflei.github.io/assets/blogImg/Screenshot_2018-05-07-11-17-44.png">
 <meta property="og:image" content="https://yflei.github.io/assets/blogImg/aa.gif">
-<meta property="og:updated_time" content="2018-05-10T01:57:12.146Z">
+<meta property="og:updated_time" content="2018-05-10T02:49:00.299Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="weex快速上手">
 <meta name="twitter:description" content="背景最近接触一个新项目，涉及到电商平台的，因此，在综合考虑了性能，门槛成本的众多可行性之后，最后在ReactNative和weex之间徘徊不定，最后领导们拍板，就weex吧。之后就开始了两个星期的weex躺坑生涯，记忆尤新。通过这两个星期间断式的预言，终于有了一点点收获，趁此机会，手撸一篇推文，致敬小伙伴们。 什么是weex？套一下官网的阐述：     1Weex 是一个使用 Web 开发体验来开">
@@ -271,7 +271,7 @@
 <p>   图片下载，网络链接，JS异常，都是可以供开发者使用不同策略，使用不同的实现，实现固定的接口，例如</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JSExceptionAdapter</span> <span class="keyword">implements</span> <span class="title">IWXJSExceptionAdapter</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onJSException</span><span class="params">(WXJSExceptionInfo exception)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (exception != <span class="keyword">null</span>) &#123;</span><br><span class="line">      WXLogUtils.d(exception.toString());</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>…</p>
-<h5 id="3、编程风格"><a href="#3、编程风格" class="headerlink" title="3、编程风格"></a>3、编程风格</h5><p>接口编程，模块分层，可插拔式，注册型，反射</p>
+<h5 id="3、编程风格"><a href="#3、编程风格" class="headerlink" title="3、编程风格"></a>3、编程风格</h5><p>接口编程，模块分层，可插拔式，注册型，反射，MVVM。</p>
 <h4 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h4><p>最后献上一个小demo gif。</p>
 <p><img src="\assets\blogImg\aa.gif" alt="aa"></p>
 
